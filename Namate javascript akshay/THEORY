@@ -59,3 +59,5 @@
 "SCOPE means where you can access a specific variable or a function in our code "
 
 "the whole chain of lexical environment is scope chain"
+
+"js engine is the heart of the js runtime environment"

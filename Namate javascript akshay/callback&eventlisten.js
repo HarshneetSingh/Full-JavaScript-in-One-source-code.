@@ -2,6 +2,7 @@
 
 // js becoming ashynchnous lang 
 
+    // Any function that is passed as an argument to another function so that it can be executed in that other function is called as a callback function. 
     setTimeout(() => {
         console.log("time");
     }, 5000);
@@ -37,3 +38,7 @@
         })
     }
     attach()
+
+// event loop 
+
+    // An event loop is something that pulls stuff out of the queue and places it onto the function execution stack whenever the function stack becomes empty.
