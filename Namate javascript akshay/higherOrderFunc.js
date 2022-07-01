@@ -51,6 +51,21 @@ const calculateArea=function (radius,LOGIC) {
     
     console.log(radiusArea);
 }
+
+console.log(radius.map(circleArea));
 calculateArea(radius,circleArea);
 calculateArea(radius,radiusCircumFrence);
 calculateArea([1,1,1],radiusDiameter);
+
+
+Array.prototype.calculate=function (LOGIC) {
+    const radiusArea=[];
+    for (let index = 0; this < radius.length; index++) {
+        
+        radiusArea.push(LOGIC(this[index]));
+    }
+    return radiusArea;
+    // console.log(radiusArea);
+}
+console.log(radius.calculate(circleArea));
+// this should work
