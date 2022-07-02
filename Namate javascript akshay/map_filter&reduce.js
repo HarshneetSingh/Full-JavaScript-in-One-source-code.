@@ -204,32 +204,54 @@ function age(forum) {
 
 // age with similiar
 
-const samAge=users.reduce(function(acc,curr){
-    if(acc[curr.age]){
-        acc[curr.age]=++acc[age];
-    }
-    else{
-        acc[curr.age]=1;
-    }
-
-},{})
-console.log(samAge);
-// const ageArr = age(users);
-// console.log(ageArr)
-// function countAge(arr) {
-//     let count = 0;
-//     for (let index = 0; index < arr.length; index++) {
-//         for (let i = 0; i < arr.length; i++) {
-
-
-
-
-
-//         }
+// const samAge=users.reduce(function(acc,curr){
+//     if(acc[curr.age]){
+//         acc[curr.age]=++acc[age];
 //     }
-// }
+//     else{
+//         acc[curr.age]=1;
+//     }
 
-// countAge(ageArr)
+// },{})
+// console.log(samAge);
+                //  this is how a object is added in the new object
+                    // const ghg={
+                        // we:12
+                    // }
+                    // ghg[12]=1;
+                    // console.log(ghg);
+
+
+const sameAge = users.reduce(function (acc, curr) {
+    if (acc[curr.age] == null) {
+
+        acc[curr.age] = 1;
+    }
+    else {
+        acc[curr.age] ++;
+        acc[curr.age]+=1;
+    }
+    return acc
+}, {})
+console.log(sameAge);
+
+
+// without reduce 
+
+function hell(users) {
+    let count={};
+    for (let i = 0; i < users.length; i++) {
+        if(count[users[i].age] ==null ){
+            count[users[i].age] =1
+        }
+        else{
+            count[users[i].age] ++
+
+        }
+    }
+    return count
+}
+console.log(hell(users))
 
 
 // 3RD QUESTION
