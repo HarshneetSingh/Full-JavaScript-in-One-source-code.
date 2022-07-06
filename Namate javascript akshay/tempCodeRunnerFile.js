@@ -1,5 +1,3 @@
-if (!isDuplicate) {
-    console.log(`Array doesn't contain duplicates.`);
-} else {
-    console.log(`Array contains duplicates.`);
-}
+promise.then((function (message) {
+//     // console.log(message);
+// }))
