@@ -39,7 +39,7 @@ p.then((ResolveMessage) => {
 // *? doing it from normal call back function
 
 let postNotLike = false;
-let postLikeByMistake = false;
+let postLikeByMistake = true;
 
 function instaAnalytics(callback, errorCallback) {
     if (postNotLike) {
@@ -58,7 +58,24 @@ function instaAnalytics(callback, errorCallback) {
 }
 instaAnalytics((message) => console.log("normal call back function"+message.message), (errorMsg) => console.log("normal call back function"+errorMsg.message))
 
+// some code as above in promise situation .
 
+const analysisByPromise=new Promise((resolve,reject)=>{
+  if (postNotLike) {
+   reject({
+        message: "tatti ne post like nahi kra"
+
+    })
+} else if (postLikeByMistake) {
+
+    reject({
+        message: "bhai lul insta delete kr "
+    })
+} else {
+   resolve("tu mera sacha bhai hai")
+}
+})
+analysisByPromise.then((message) => console.log("normal promise;;"+message)).catch( (errorMsg) => console.log("normal promise"+errorMsg.message))
 console.log("helo")
 
 // ** below code if theres only rsolve
@@ -182,3 +199,12 @@ let promise5 = new Promise((resolve, reject) => {
 
  *   The call stack is empty. The script execution has been completed.
 */  
+
+function delay(ms) {
+  return new Promise((resolve,reject)=> {
+    setTimeout(resolve, ms);
+  })
+  
+}
+
+delay(3000).then(() => console.log('runs after 3 seconds'));

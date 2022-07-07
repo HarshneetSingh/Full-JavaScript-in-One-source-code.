@@ -1,3 +1,2 @@
-promise.then((function (message) {
-//     // console.log(message);
-// }))
+.catch((message)=>{
+    //       })
