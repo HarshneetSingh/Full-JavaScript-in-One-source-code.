@@ -131,35 +131,77 @@ let student = [
     new Technology("harshi", 12, 'frontend'),
     new Technology("htmlsingh", 21, 'backend')
 ]
-function printingOfstudent(techs){
-    
-    for(let student of techs){
+function printingOfstudent(techs) {
+
+    for (let student of techs) {
         console.log(student.describe())
     }
 
 }
 printingOfstudent(student)
-// polymorphisim 
 
 //?inheritance and extends
 
 class person2 {
-    constructor(name, age,clas) {
+    constructor(name, age) {
         this.name = name;
-        this.age = age;this.clas = clas;
+        this.age = age;
     }
-    class(){
-        console.log (`hello ${this.clas}`)
+    clis(num) {
+        console.log(`hello ${num}`)
     }
 }
 class person3 extends person2 {
-    constructor(name, age,clas) {
-        super(name, age, clas);
+    constructor(name, age, num) {
+        super(name, age);
+        this.num = num;
     }
-    clas(){
-        super.class();
-        return `hello boi`
+    clis() {
+        super.clis(this.num);
+        return console.log(`hello boi`)
     }
 }
-let polymorphisim=new person2("h",2,3);
-console.log(polymorphisim)
+let polymorphisim = new person3("h", 2, 3);
+polymorphisim.clis()
+
+
+// class practice 
+
+const mylist = document.querySelector('.myList');
+
+class listBinding {
+    constructor(element) {
+        this.element = element;
+        this.text = []
+    };
+    static listMaker(text) {
+        const li = document.createElement("li");
+        li.textContent = text;
+        return li;
+    };
+    update() {
+
+        while (this.element.firstChild) {
+            this.element.removeChild(this.element.firstChild)
+        }
+        for (const list of this.text) {
+            this.element.appendChild(listBinding.listMaker(list))
+        }
+    };
+
+    remove(index) {
+        this.text.splice(index,1)
+        this.update()
+    }
+
+    add(txt) {
+       
+        this.text.push(txt);
+         this.update()
+    }
+}
+const list = new listBinding(mylist);
+
+list.add("hello")
+list.add("world")
+list.remove(1)
